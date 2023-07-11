@@ -4,6 +4,7 @@ import TreeView from './problems/TreeView';
 import DeepFlatten from './problems/DeepFlatten';
 import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
 import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
+import FetchAndAbort from './problems/FetchAndAbort';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -12,10 +13,11 @@ const PROBLEMS_SET = {
   DEEP_FLATTEN: 'Deep Flatten Object',
   PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
   USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
+  FETCH_AND_ABORT: 'Fetch and Abort',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.OVERLAPPING_CIRCLE);
+  const [problem, setProblem] = useState(PROBLEMS_SET.FETCH_AND_ABORT);
 
   const getComp = () => {
     switch (problem) {
@@ -29,6 +31,8 @@ const App = () => {
         return <PausableAutoIncrementer />;
       case PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK:
         return <UseDebounceCustomHook />;
+      case PROBLEMS_SET.FETCH_AND_ABORT:
+        return <FetchAndAbort />;
       default:
         return <></>;
     }
@@ -103,6 +107,19 @@ const App = () => {
                   onChange={(e) => setProblem(e.target.value)}
                 />
                 {PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.FETCH_AND_ABORT}
+                  name="problem"
+                  value={PROBLEMS_SET.FETCH_AND_ABORT}
+                  checked={problem === PROBLEMS_SET.FETCH_AND_ABORT}
+                  onChange={(e) => setProblem(e.target.value)}
+                />
+                {PROBLEMS_SET.FETCH_AND_ABORT}
               </label>
             </div>
           </fieldset>
