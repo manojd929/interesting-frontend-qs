@@ -58,6 +58,7 @@ const TreeNode = ({ node }) => {
 
   return (
     <div key={`${label}-${key}`}>
+      k
       <div>
         {label}{' '}
         {children && children.length ? (

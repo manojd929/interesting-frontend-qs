@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import OverlappingCircle from './problems/OverlappingCircle';
 import TreeView from './problems/TreeView';
 import DeepFlatten from './problems/DeepFlatten';
+import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
 import './style.css';
 
 const PROBLEMS_SET = {
   OVERLAPPING_CIRCLE: 'Overlapping Circle Identification',
   TREE_VIEW: 'Tree View / Folder Structure',
   DEEP_FLATTEN: 'Deep Flatten Object',
+  PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
 };
 
 const App = () => {
@@ -21,6 +23,8 @@ const App = () => {
         return <TreeView />;
       case PROBLEMS_SET.DEEP_FLATTEN:
         return <DeepFlatten />;
+      case PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER:
+        return <PausableAutoIncrementer />;
       default:
         return <></>;
     }
@@ -69,6 +73,19 @@ const App = () => {
                   onChange={(e) => setProblem(e.target.value)}
                 />
                 {PROBLEMS_SET.DEEP_FLATTEN}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
+                  name="problem"
+                  value={PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
+                  checked={problem === PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
+                  onChange={(e) => setProblem(e.target.value)}
+                />
+                {PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
               </label>
             </div>
           </fieldset>
