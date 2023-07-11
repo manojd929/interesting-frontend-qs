@@ -59,7 +59,17 @@ const App = () => {
       </section>
       <section>
         <h3>Demo of {problem}</h3>
-        <div id="playground">{getComp()}</div>
+        <div
+          className="sb-playground"
+          style={{
+            marginTop: '2rem',
+            minHeight: '100vh',
+            width: '100vw',
+            borderTop: '1px solid black',
+          }}
+        >
+          {getComp()}
+        </div>
       </section>
     </div>
   );

@@ -5,10 +5,14 @@ const OverlappingCircle = (_props) => {
   const [circleCords, setCircleCords] = useState([]);
 
   useEffect(() => {
-    const element = document.getElementById('playground');
-    element.addEventListener('click', drawCircle);
-
-    () => element.removeEventListener('click', drawCircle);
+    document
+      .getElementsByClassName('sb-playground')[0]
+      .addEventListener('click', drawCircle);
+    console.log(document.getElementsByClassName('playground')[0]);
+    return () =>
+      document
+        .getElementsByClassName('sb-playground')[0]
+        .removeEventListener('click', drawCircle);
   }, []);
 
   const drawCircle = (e) => {
@@ -34,13 +38,13 @@ const OverlappingCircle = (_props) => {
   };
 
   const getElementsOverlap = (circle1, circle2) => {
-    const collids = !(
+    const collides = !(
       circle1.top > circle2.bottom ||
       circle1.right < circle2.left ||
       circle1.bottom < circle2.top ||
       circle1.left > circle2.right
     );
-    return collids;
+    return collides;
   };
 
   return circleCords.map((cord, index) => {
