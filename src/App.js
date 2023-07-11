@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import OverlappingCircle from './problems/OverlappingCircle';
 import TreeView from './problems/TreeView';
+import DeepFlatten from './problems/DeepFlatten';
 import './style.css';
 
 const PROBLEMS_SET = {
   OVERLAPPING_CIRCLE: 'Overlapping Circle Identification',
   TREE_VIEW: 'Tree View / Folder Structure',
+  DEEP_FLATTEN: 'Deep Flatten Object',
 };
 
 const App = () => {
@@ -17,8 +19,10 @@ const App = () => {
         return <OverlappingCircle />;
       case PROBLEMS_SET.TREE_VIEW:
         return <TreeView />;
+      case PROBLEMS_SET.DEEP_FLATTEN:
+        return <DeepFlatten />;
       default:
-        return <OverlappingCircle />;
+        return <></>;
     }
   };
 
@@ -52,6 +56,19 @@ const App = () => {
                   onChange={(e) => setProblem(e.target.value)}
                 />
                 {PROBLEMS_SET.TREE_VIEW}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.DEEP_FLATTEN}
+                  name="problem"
+                  value={PROBLEMS_SET.DEEP_FLATTEN}
+                  checked={problem === PROBLEMS_SET.DEEP_FLATTEN}
+                  onChange={(e) => setProblem(e.target.value)}
+                />
+                {PROBLEMS_SET.DEEP_FLATTEN}
               </label>
             </div>
           </fieldset>

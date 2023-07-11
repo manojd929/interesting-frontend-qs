@@ -45,8 +45,8 @@ const initialData = [
 const TreeView = () => {
   return (
     <div>
-      {initialData.map((node) => (
-        <TreeNode node={node} />
+      {initialData.map((node, index) => (
+        <TreeNode key={index} node={node} />
       ))}
     </div>
   );
