@@ -10,6 +10,9 @@ const input = {
     },
     Q: [1, 2],
   },
+  Z: {
+    D: [[8, 3], 5],
+  },
 };
 
 const solution = (obj, prefix = '') => {
@@ -36,8 +39,7 @@ const DeepFlatten = () => {
 export default DeepFlatten;
 
 /*
-Input:
-
+Input: 
 {
   A: '12',
   B: 23,
@@ -59,5 +61,4 @@ Output:
   C.Q.0: 1,
   C.Q.1: 2,
 }
-
 */
