@@ -3,6 +3,7 @@ import OverlappingCircle from './problems/OverlappingCircle';
 import TreeView from './problems/TreeView';
 import DeepFlatten from './problems/DeepFlatten';
 import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
+import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -10,6 +11,7 @@ const PROBLEMS_SET = {
   TREE_VIEW: 'Tree View / Folder Structure',
   DEEP_FLATTEN: 'Deep Flatten Object',
   PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
+  USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
 };
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
         return <DeepFlatten />;
       case PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER:
         return <PausableAutoIncrementer />;
+      case PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK:
+        return <UseDebounceCustomHook />;
       default:
         return <></>;
     }
@@ -86,6 +90,19 @@ const App = () => {
                   onChange={(e) => setProblem(e.target.value)}
                 />
                 {PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
+                  name="problem"
+                  value={PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
+                  checked={problem === PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
+                  onChange={(e) => setProblem(e.target.value)}
+                />
+                {PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
               </label>
             </div>
           </fieldset>
