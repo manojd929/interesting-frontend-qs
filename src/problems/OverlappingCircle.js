@@ -5,9 +5,10 @@ const OverlappingCircle = (_props) => {
   const [circleCords, setCircleCords] = useState([]);
 
   useEffect(() => {
-    document.addEventListener('click', drawCircle);
+    const element = document.getElementById('playground');
+    element.addEventListener('click', drawCircle);
 
-    () => document.removeEventListener('click', drawCircle);
+    () => element.removeEventListener('click', drawCircle);
   }, []);
 
   const drawCircle = (e) => {
@@ -42,14 +43,9 @@ const OverlappingCircle = (_props) => {
     return collids;
   };
 
-  return (
-    <>
-      <div>Overlapping Circle</div>
-      {circleCords.map((cord, index) => {
-        return <Circle {...cord} key={cord.top + cord.left + index} />;
-      })}
-    </>
-  );
+  return circleCords.map((cord, index) => {
+    return <Circle {...cord} key={cord.top + cord.left + index} />;
+  });
 };
 
 const Circle = ({ top, left, backgroundColor }) => {
