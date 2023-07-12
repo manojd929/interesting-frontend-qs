@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const DELAY = 3000;
-
 const FetchAndAbort = () => {
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,23 +25,23 @@ const FetchAndAbort = () => {
 
   return (
     <div>
-      <div>
+      <div style={{ margin: '1rem' }}>
         <button
           onClick={() => {
             fetchData();
           }}
         >
-          Fetch Data - {DELAY / 1000} seconds
+          Fetch Data
         </button>
       </div>
       <div style={{ margin: '1rem' }} />
-      <div>
+      <div style={{ margin: '1rem' }}>
         <button
           onClick={() => {
             abortData();
           }}
         >
-          Abort
+          Abort Request
         </button>
       </div>
       <div style={{ margin: '1rem' }} />

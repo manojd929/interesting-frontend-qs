@@ -5,6 +5,7 @@ import DeepFlatten from './problems/DeepFlatten';
 import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
 import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
 import FetchAndAbort from './problems/FetchAndAbort';
+import InfiniteScroller from './problems/InfiniteScroller';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -14,10 +15,11 @@ const PROBLEMS_SET = {
   PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
   USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
   FETCH_AND_ABORT: 'Fetch and Abort',
+  INFINITE_SCROLLER: 'Infinite Scrolling',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.FETCH_AND_ABORT);
+  const [problem, setProblem] = useState(PROBLEMS_SET.INFINITE_SCROLLER);
 
   const getComp = () => {
     switch (problem) {
@@ -33,6 +35,8 @@ const App = () => {
         return <UseDebounceCustomHook />;
       case PROBLEMS_SET.FETCH_AND_ABORT:
         return <FetchAndAbort />;
+      case PROBLEMS_SET.INFINITE_SCROLLER:
+        return <InfiniteScroller />;
       default:
         return <></>;
     }
@@ -52,7 +56,7 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.OVERLAPPING_CIRCLE}
                   checked={problem === PROBLEMS_SET.OVERLAPPING_CIRCLE}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() => setProblem(PROBLEMS_SET.OVERLAPPING_CIRCLE)}
                 />
                 {PROBLEMS_SET.OVERLAPPING_CIRCLE}
               </label>
@@ -65,7 +69,7 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.TREE_VIEW}
                   checked={problem === PROBLEMS_SET.TREE_VIEW}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() => setProblem(PROBLEMS_SET.TREE_VIEW)}
                 />
                 {PROBLEMS_SET.TREE_VIEW}
               </label>
@@ -78,7 +82,7 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.DEEP_FLATTEN}
                   checked={problem === PROBLEMS_SET.DEEP_FLATTEN}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() => setProblem(PROBLEMS_SET.DEEP_FLATTEN)}
                 />
                 {PROBLEMS_SET.DEEP_FLATTEN}
               </label>
@@ -91,7 +95,9 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
                   checked={problem === PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() =>
+                    setProblem(PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER)
+                  }
                 />
                 {PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER}
               </label>
@@ -104,7 +110,9 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
                   checked={problem === PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() =>
+                    setProblem(PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK)
+                  }
                 />
                 {PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK}
               </label>
@@ -117,9 +125,22 @@ const App = () => {
                   name="problem"
                   value={PROBLEMS_SET.FETCH_AND_ABORT}
                   checked={problem === PROBLEMS_SET.FETCH_AND_ABORT}
-                  onChange={(e) => setProblem(e.target.value)}
+                  onChange={() => setProblem(PROBLEMS_SET.FETCH_AND_ABORT)}
                 />
                 {PROBLEMS_SET.FETCH_AND_ABORT}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.INFINITE_SCROLLER}
+                  name="problem"
+                  value={PROBLEMS_SET.INFINITE_SCROLLER}
+                  checked={problem === PROBLEMS_SET.INFINITE_SCROLLER}
+                  onChange={() => setProblem(PROBLEMS_SET.INFINITE_SCROLLER)}
+                />
+                {PROBLEMS_SET.INFINITE_SCROLLER}
               </label>
             </div>
           </fieldset>
