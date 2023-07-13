@@ -67,7 +67,12 @@ const InfiniteScroller = () => {
   return (
     <div style={{ margin: '1rem' }}>
       <section>
-        <input type="text" onChange={handleSearch} value={query} />
+        <input
+          type="text"
+          onChange={handleSearch}
+          value={query}
+          placeholder="enter text"
+        />
         <ul>
           {books.map((book, index) => {
             if (books.length === index + 1) {
