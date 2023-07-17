@@ -6,6 +6,7 @@ import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
 import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
 import FetchAndAbort from './problems/FetchAndAbort';
 import InfiniteScroller from './problems/InfiniteScroller';
+import DebounceAndThrottle from './problems/DebounceAndThrottle';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -16,10 +17,11 @@ const PROBLEMS_SET = {
   USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
   FETCH_AND_ABORT: 'Fetch and Abort',
   INFINITE_SCROLLER: 'Infinite Scrolling',
+  DEBOUNCE_AND_THROTTLE: 'Debounce and Throttle',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.INFINITE_SCROLLER);
+  const [problem, setProblem] = useState(PROBLEMS_SET.DEBOUNCE_AND_THROTTLE);
 
   const getComp = () => {
     switch (problem) {
@@ -37,6 +39,8 @@ const App = () => {
         return <FetchAndAbort />;
       case PROBLEMS_SET.INFINITE_SCROLLER:
         return <InfiniteScroller />;
+      case PROBLEMS_SET.DEBOUNCE_AND_THROTTLE:
+        return <DebounceAndThrottle />;
       default:
         return <></>;
     }
@@ -141,6 +145,21 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.INFINITE_SCROLLER)}
                 />
                 {PROBLEMS_SET.INFINITE_SCROLLER}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
+                  name="problem"
+                  value={PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
+                  checked={problem === PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
+                  onChange={() =>
+                    setProblem(PROBLEMS_SET.DEBOUNCE_AND_THROTTLE)
+                  }
+                />
+                {PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
               </label>
             </div>
           </fieldset>
