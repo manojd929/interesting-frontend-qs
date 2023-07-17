@@ -58,7 +58,6 @@ const TreeNode = ({ node }) => {
 
   return (
     <div key={`${label}-${key}`}>
-      k
       <div>
         {label}{' '}
         {children && children.length ? (
@@ -67,7 +66,8 @@ const TreeNode = ({ node }) => {
           </button>
         ) : null}
       </div>
-      {showChildren && children.map((node) => <TreeNode node={node} />)}
+      {showChildren &&
+        children.map((node, index) => <TreeNode node={node} key={index} />)}
     </div>
   );
 };
