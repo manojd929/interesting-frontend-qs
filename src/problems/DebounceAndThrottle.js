@@ -47,7 +47,7 @@ const DebounceAndThrottle = () => {
   };
 
   return (
-    <div style={{ marginTop: '1rem' }}>
+    <div>
       <section>
         <input
           type="text"

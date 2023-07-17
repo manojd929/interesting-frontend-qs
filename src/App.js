@@ -170,7 +170,8 @@ const App = () => {
         <div
           className="sb-playground"
           style={{
-            marginTop: '2rem',
+            margin: '2rem 0rem',
+            padding: '1rem 0',
             minHeight: '100vh',
             width: '100vw',
             borderTop: '1px solid black',
