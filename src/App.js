@@ -8,6 +8,7 @@ import FetchAndAbort from './problems/FetchAndAbort';
 import InfiniteScroller from './problems/InfiniteScroller';
 import DebounceAndThrottle from './problems/DebounceAndThrottle';
 import PolyfillForBind from './problems/PolyfillForBind';
+import PolyfillForPromise from './problems/PolyfillForPromise';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -20,10 +21,11 @@ const PROBLEMS_SET = {
   INFINITE_SCROLLER: 'Infinite Scrolling',
   DEBOUNCE_AND_THROTTLE: 'Debounce and Throttle',
   POLYFILL_FOR_BIND: 'Polyfill for Bind',
+  POLYFILL_FOR_PROMISE: 'Polyfill for Promise',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.POLYFILL_FOR_BIND);
+  const [problem, setProblem] = useState(PROBLEMS_SET.POLYFILL_FOR_PROMISE);
 
   const getComp = () => {
     switch (problem) {
@@ -45,6 +47,8 @@ const App = () => {
         return <DebounceAndThrottle />;
       case PROBLEMS_SET.POLYFILL_FOR_BIND:
         return <PolyfillForBind />;
+      case PROBLEMS_SET.POLYFILL_FOR_PROMISE:
+        return <PolyfillForPromise />;
       default:
         return <></>;
     }
@@ -177,6 +181,19 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.POLYFILL_FOR_BIND)}
                 />
                 {PROBLEMS_SET.POLYFILL_FOR_BIND}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.POLYFILL_FOR_PROMISE}
+                  name="problem"
+                  value={PROBLEMS_SET.POLYFILL_FOR_PROMISE}
+                  checked={problem === PROBLEMS_SET.POLYFILL_FOR_PROMISE}
+                  onChange={() => setProblem(PROBLEMS_SET.POLYFILL_FOR_PROMISE)}
+                />
+                {PROBLEMS_SET.POLYFILL_FOR_PROMISE}
               </label>
             </div>
           </fieldset>
