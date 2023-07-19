@@ -14,9 +14,9 @@ class MyPromise {
   #onSuccessBind = this.#onSuccess.bind(this);
   #onFailBind = this.#onFail.bind(this);
 
-  constructor(cb) {
+  constructor(executor) {
     try {
-      cb(this.#onSuccessBind, this.#onFailBind);
+      executor(this.#onSuccessBind, this.#onFailBind);
     } catch (e) {
       this.#onFail(e);
     }
@@ -61,34 +61,38 @@ class MyPromise {
   }
 
   then(thenCb, catchCb) {
-    return new MyPromise((resolve, reject) => {
-      this.#thenCallbacks.push((result) => {
-        if (thenCb == null) {
-          resolve(result);
-          return;
-        }
+    if (thenCb != null) {
+      this.#thenCallbacks.push(thenCb);
+    }
 
-        try {
-          resolve(thenCb(result));
-        } catch (error) {
-          reject(error);
-        }
-      });
-    });
+    if (catchCb != null) {
+      this.#catchCallbacks.push(catchCb);
+    }
+
+    this.#runCallbacks();
+    return this;
   }
 
   catch(cb) {
     this.then(undefined, cb);
+    return this;
+  }
+
+  finally(cb) {
+    this.then(
+      () => cb(),
+      () => cb()
+    );
+    return this;
   }
 }
 
 const PolyfillForPromise = () => {
-  const p = new MyPromise((resolve, reject) => {
+  console.log('RENDER');
+  const myPro = new MyPromise((resolve, reject) => {
     resolve(1);
   });
-  console.log(p);
-
-  p.then((res) => console.log('---', res));
+  myPro.then((res) => console.log('Resolved value - ', res));
   return (
     <div>
       <section>Please check console</section>
