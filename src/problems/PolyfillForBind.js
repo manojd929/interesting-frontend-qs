@@ -1,5 +1,28 @@
 import React from 'react';
 
+/* Call, Apply, Bind Reference code
+
+const coder = {
+  firstName: 'Manoj',
+  lastName: 'Dinesh',
+  printFullName: function () {
+    console.log(this.firstName + ' ' + this.lastName);
+  },
+};
+
+coder.printFullName();
+
+const coder2 = {
+  firstName: 'John',
+  lastName: 'Doe',
+};
+
+coder.printFullName.call(coder2);
+coder.printFullName.apply(coder2);
+coder.printFullName.bind(coder2)
+
+*/
+
 const name = {
   firstName: 'Manoj',
   lastName: 'Dinesh',
