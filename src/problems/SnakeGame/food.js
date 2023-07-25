@@ -1,6 +1,14 @@
+import { hasEaten, expandSnake } from './snake';
+import { getRandomGridPosition } from './grid';
+
 let foodPoint = { x: 5, y: 5 };
 
-export const updateFood = () => {};
+export const updateFood = () => {
+  if (hasEaten(foodPoint)) {
+    expandSnake();
+    foodPoint = getNewFoodPosition();
+  }
+};
 
 export const drawFood = () => {
   const gameBoard = document.getElementById('game-board');
@@ -13,4 +21,14 @@ export const drawFood = () => {
   if (gameBoard) {
     gameBoard.append(foodElement);
   }
+};
+
+const getNewFoodPosition = () => {
+  let newFoodPosition;
+
+  while (newFoodPosition == null || hasEaten(newFoodPosition)) {
+    newFoodPosition = getRandomGridPosition();
+  }
+
+  return newFoodPosition;
 };
