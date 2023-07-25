@@ -9,6 +9,7 @@ import InfiniteScroller from './problems/InfiniteScroller';
 import DebounceAndThrottle from './problems/DebounceAndThrottle';
 import PolyfillForBind from './problems/PolyfillForBind';
 import PolyfillForPromise from './problems/PolyfillForPromise';
+import SnakeGame from './problems/SnakeGame/SnakeGame';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -22,10 +23,11 @@ const PROBLEMS_SET = {
   DEBOUNCE_AND_THROTTLE: 'Debounce and Throttle',
   POLYFILL_FOR_BIND: 'Polyfill for Bind',
   POLYFILL_FOR_PROMISE: 'Polyfill for Promise',
+  SNAKE_GAME: 'Snake Game',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.POLYFILL_FOR_PROMISE);
+  const [problem, setProblem] = useState(PROBLEMS_SET.SNAKE_GAME);
 
   const getComp = () => {
     switch (problem) {
@@ -49,6 +51,8 @@ const App = () => {
         return <PolyfillForBind />;
       case PROBLEMS_SET.POLYFILL_FOR_PROMISE:
         return <PolyfillForPromise />;
+      case PROBLEMS_SET.SNAKE_GAME:
+        return <SnakeGame />;
       default:
         return <></>;
     }
@@ -194,6 +198,19 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.POLYFILL_FOR_PROMISE)}
                 />
                 {PROBLEMS_SET.POLYFILL_FOR_PROMISE}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.SNAKE_GAME}
+                  name="problem"
+                  value={PROBLEMS_SET.SNAKE_GAME}
+                  checked={problem === PROBLEMS_SET.SNAKE_GAME}
+                  onChange={() => setProblem(PROBLEMS_SET.SNAKE_GAME)}
+                />
+                {PROBLEMS_SET.SNAKE_GAME}
               </label>
             </div>
           </fieldset>
