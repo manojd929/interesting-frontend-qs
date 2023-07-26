@@ -11,6 +11,7 @@ import PolyfillForBind from './problems/PolyfillForBind';
 import PolyfillForPromise from './problems/PolyfillForPromise';
 import SnakeGame from './problems/SnakeGame/SnakeGame';
 import Calculator from './problems/Calculator/Calculator';
+import FetchWithTimeout from './problems/FetchWithTimeout';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -26,10 +27,11 @@ const PROBLEMS_SET = {
   POLYFILL_FOR_PROMISE: 'Polyfill for Promise',
   SNAKE_GAME: 'Snake Game',
   CALCULATOR: 'Calculator',
+  FETCH_WITH_TIMEOUT: 'Fetch With Timeout',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.CALCULATOR);
+  const [problem, setProblem] = useState(PROBLEMS_SET.FETCH_WITH_TIMEOUT);
 
   const getComp = () => {
     switch (problem) {
@@ -57,6 +59,8 @@ const App = () => {
         return <SnakeGame />;
       case PROBLEMS_SET.CALCULATOR:
         return <Calculator />;
+      case PROBLEMS_SET.FETCH_WITH_TIMEOUT:
+        return <FetchWithTimeout />;
       default:
         return <></>;
     }
@@ -228,6 +232,19 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.CALCULATOR)}
                 />
                 {PROBLEMS_SET.CALCULATOR}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  name="problem"
+                  value={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  checked={problem === PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  onChange={() => setProblem(PROBLEMS_SET.FETCH_WITH_TIMEOUT)}
+                />
+                {PROBLEMS_SET.FETCH_WITH_TIMEOUT}
               </label>
             </div>
           </fieldset>

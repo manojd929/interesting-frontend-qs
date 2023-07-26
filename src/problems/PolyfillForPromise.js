@@ -88,7 +88,6 @@ class MyPromise {
 }
 
 const PolyfillForPromise = () => {
-  console.log('RENDER');
   const myPro = new MyPromise((resolve, reject) => {
     resolve(1);
   });
