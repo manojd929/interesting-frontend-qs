@@ -1,3 +1,4 @@
+import React from 'react';
 import Page from './pages/Page';
 
 const App = () => {
@@ -5,8 +6,6 @@ const App = () => {
     <div className="app">
       <h1>Custom Switch</h1>
       <main>
-        <div className="datetime-now">{new Date().toLocaleString()}</div>
-        <hr />
         <Page />
       </main>
     </div>
