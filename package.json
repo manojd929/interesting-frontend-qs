@@ -1,18 +1,27 @@
 {
-  "name": "stackblitz-starters-tgh2gf",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
+  "name": "interesting-frontend-qs",
+  "version": "1.0.0",
+  "main": "/src/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "react-scripts": "latest"
+  "author": "manojd929",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

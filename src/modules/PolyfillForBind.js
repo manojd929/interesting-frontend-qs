@@ -45,17 +45,5 @@ Function.prototype.myBind = function (...args) {
   };
 };
 
-const PolyfillForBind = () => {
-  let printMyName = printName.bind(name);
-  console.log(printMyName('Bangalore'));
-  printMyName = printName.myBind(name2);
-  console.log(printMyName('Texas'));
-
-  return (
-    <div>
-      <section>Please check console</section>
-    </div>
-  );
-};
-
-export default PolyfillForBind;
+const printNameBound = printName.myBind(name2);
+console.log(printNameBound());
