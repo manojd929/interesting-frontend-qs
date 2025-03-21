@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
-import OverlappingCircle from './problems/OverlappingCircle';
+import OverlappingCircle from './react-components/DetectOverlappingCircle/';
 import TreeView from './problems/TreeView';
-import DeepFlatten from './problems/DeepFlatten';
 import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
 import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
-import FetchAndAbort from './problems/FetchAndAbort';
 import InfiniteScroller from './problems/InfiniteScroller';
-import DebounceAndThrottle from './problems/DebounceAndThrottle';
-import PolyfillForBind from './problems/PolyfillForBind';
-import PolyfillForPromise from './problems/PolyfillForPromise';
 import SnakeGame from './problems/SnakeGame/SnakeGame';
 import Calculator from './problems/Calculator/Calculator';
-import FetchWithTimeout from './problems/FetchWithTimeout';
 import './style.css';
 
 const PROBLEMS_SET = {
   OVERLAPPING_CIRCLE: 'Overlapping Circle Identification',
   TREE_VIEW: 'Tree View / Folder Structure',
-  DEEP_FLATTEN: 'Deep Flatten Object',
   PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
   USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
   FETCH_AND_ABORT: 'Fetch and Abort',
   INFINITE_SCROLLER: 'Infinite Scrolling',
-  DEBOUNCE_AND_THROTTLE: 'Debounce and Throttle',
-  POLYFILL_FOR_BIND: 'Polyfill for Bind',
-  POLYFILL_FOR_PROMISE: 'Polyfill for Promise',
   SNAKE_GAME: 'Snake Game',
   CALCULATOR: 'Calculator',
   FETCH_WITH_TIMEOUT: 'Fetch With Timeout',
