@@ -1,10 +1,9 @@
 import Page from './pages/Page';
-import './style.css';
 
-const FeatureFlag = () => {
+const App = () => {
   return (
-    <div className="feature-flag-container">
-      <h1>Feature Flag</h1>
+    <div className="app">
+      <h1>Custom Switch</h1>
       <main>
         <div className="datetime-now">{new Date().toLocaleString()}</div>
         <hr />
@@ -14,4 +13,4 @@ const FeatureFlag = () => {
   );
 };
 
-export default FeatureFlag;
+export default App;

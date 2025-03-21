@@ -1,5 +1,5 @@
 import React from 'react';
-import { ACTIONS } from './Calculator';
+import { ACTIONS } from '.';
 
 const DigitButton = ({ digit, dispatch }) => {
   return (

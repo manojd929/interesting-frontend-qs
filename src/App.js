@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import OverlappingCircle from './react-components/DetectOverlappingCircle/';
-import TreeView from './problems/TreeView';
-import PausableAutoIncrementer from './problems/PausableAutoIncrementer';
-import UseDebounceCustomHook from './problems/UseDebounceCustomHook';
-import InfiniteScroller from './problems/InfiniteScroller';
-import SnakeGame from './problems/SnakeGame/SnakeGame';
-import Calculator from './problems/Calculator/Calculator';
+import OverlappingCircle from './react-components/DetectOverlappingCircle';
+import TreeView from './react-components/TreeView';
+import PausableAutoIncrementer from './react-components/PausableAutoIncrementer';
+import UseDebounceCustomHook from './react-components/UseDebounceCustomHook';
+import FetchAndAbort from './react-components/FetchAndMore/FetchWithAbort';
+import FetchWithTimeout from './react-components/FetchAndMore/FetchWithTimeout';
+import InfiniteScroller from './react-components/InfiniteScroller';
+import SnakeGame from './react-components/SnakeGame';
+import Calculator from './react-components/Calculator';
+import FeatureFlag from './react-components/FeatureFlag';
+import BarGraph from './react-components/BarGraph';
+import CustomSwitch from './react-components/CustomSwitch';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -18,10 +23,13 @@ const PROBLEMS_SET = {
   SNAKE_GAME: 'Snake Game',
   CALCULATOR: 'Calculator',
   FETCH_WITH_TIMEOUT: 'Fetch With Timeout',
+  FEATURE_FLAG: 'Feature Flag',
+  BAR_GRAPH: 'Bar Graph',
+  CUSTOM_SWITCH: 'Custom Switch',
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.FETCH_WITH_TIMEOUT);
+  const [problem, setProblem] = useState(PROBLEMS_SET.OVERLAPPING_CIRCLE);
 
   const getComp = () => {
     switch (problem) {
@@ -29,8 +37,6 @@ const App = () => {
         return <OverlappingCircle />;
       case PROBLEMS_SET.TREE_VIEW:
         return <TreeView />;
-      case PROBLEMS_SET.DEEP_FLATTEN:
-        return <DeepFlatten />;
       case PROBLEMS_SET.PAUSABLE_AUTO_INCREMENTER:
         return <PausableAutoIncrementer />;
       case PROBLEMS_SET.USE_DEBOUNCE_CUSTOM_HOOK:
@@ -39,18 +45,18 @@ const App = () => {
         return <FetchAndAbort />;
       case PROBLEMS_SET.INFINITE_SCROLLER:
         return <InfiniteScroller />;
-      case PROBLEMS_SET.DEBOUNCE_AND_THROTTLE:
-        return <DebounceAndThrottle />;
-      case PROBLEMS_SET.POLYFILL_FOR_BIND:
-        return <PolyfillForBind />;
-      case PROBLEMS_SET.POLYFILL_FOR_PROMISE:
-        return <PolyfillForPromise />;
       case PROBLEMS_SET.SNAKE_GAME:
         return <SnakeGame />;
       case PROBLEMS_SET.CALCULATOR:
         return <Calculator />;
       case PROBLEMS_SET.FETCH_WITH_TIMEOUT:
         return <FetchWithTimeout />;
+      case PROBLEMS_SET.FEATURE_FLAG:
+        return <FeatureFlag />;
+      case PROBLEMS_SET.BAR_GRAPH:
+        return <BarGraph />;
+      case PROBLEMS_SET.CUSTOM_SWITCH:
+        return <CustomSwitch />;
       default:
         return <></>;
     }
@@ -86,19 +92,6 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.TREE_VIEW)}
                 />
                 {PROBLEMS_SET.TREE_VIEW}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="problem">
-                <input
-                  type="radio"
-                  id={PROBLEMS_SET.DEEP_FLATTEN}
-                  name="problem"
-                  value={PROBLEMS_SET.DEEP_FLATTEN}
-                  checked={problem === PROBLEMS_SET.DEEP_FLATTEN}
-                  onChange={() => setProblem(PROBLEMS_SET.DEEP_FLATTEN)}
-                />
-                {PROBLEMS_SET.DEEP_FLATTEN}
               </label>
             </div>
             <div>
@@ -161,47 +154,6 @@ const App = () => {
               <label htmlFor="problem">
                 <input
                   type="radio"
-                  id={PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
-                  name="problem"
-                  value={PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
-                  checked={problem === PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
-                  onChange={() =>
-                    setProblem(PROBLEMS_SET.DEBOUNCE_AND_THROTTLE)
-                  }
-                />
-                {PROBLEMS_SET.DEBOUNCE_AND_THROTTLE}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="problem">
-                <input
-                  type="radio"
-                  id={PROBLEMS_SET.POLYFILL_FOR_BIND}
-                  name="problem"
-                  value={PROBLEMS_SET.POLYFILL_FOR_BIND}
-                  checked={problem === PROBLEMS_SET.POLYFILL_FOR_BIND}
-                  onChange={() => setProblem(PROBLEMS_SET.POLYFILL_FOR_BIND)}
-                />
-                {PROBLEMS_SET.POLYFILL_FOR_BIND}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="problem">
-                <input
-                  type="radio"
-                  id={PROBLEMS_SET.POLYFILL_FOR_PROMISE}
-                  name="problem"
-                  value={PROBLEMS_SET.POLYFILL_FOR_PROMISE}
-                  checked={problem === PROBLEMS_SET.POLYFILL_FOR_PROMISE}
-                  onChange={() => setProblem(PROBLEMS_SET.POLYFILL_FOR_PROMISE)}
-                />
-                {PROBLEMS_SET.POLYFILL_FOR_PROMISE}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="problem">
-                <input
-                  type="radio"
                   id={PROBLEMS_SET.SNAKE_GAME}
                   name="problem"
                   value={PROBLEMS_SET.SNAKE_GAME}
@@ -235,6 +187,45 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.FETCH_WITH_TIMEOUT)}
                 />
                 {PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.FEATURE_FLAG}
+                  name="problem"
+                  value={PROBLEMS_SET.FEATURE_FLAG}
+                  checked={problem === PROBLEMS_SET.FEATURE_FLAG}
+                  onChange={() => setProblem(PROBLEMS_SET.FEATURE_FLAG)}
+                />
+                {PROBLEMS_SET.FEATURE_FLAG}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.BAR_GRAPH}
+                  name="problem"
+                  value={PROBLEMS_SET.BAR_GRAPH}
+                  checked={problem === PROBLEMS_SET.BAR_GRAPH}
+                  onChange={() => setProblem(PROBLEMS_SET.BAR_GRAPH)}
+                />
+                {PROBLEMS_SET.BAR_GRAPH}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.CUSTOM_SWITCH}
+                  name="problem"
+                  value={PROBLEMS_SET.CUSTOM_SWITCH}
+                  checked={problem === PROBLEMS_SET.CUSTOM_SWITCH}
+                  onChange={() => setProblem(PROBLEMS_SET.CUSTOM_SWITCH)}
+                />
+                {PROBLEMS_SET.CUSTOM_SWITCH}
               </label>
             </div>
           </fieldset>

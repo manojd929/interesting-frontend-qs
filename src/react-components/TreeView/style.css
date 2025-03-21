@@ -1,0 +1,19 @@
+.tree-structure {
+  padding-left: 2rem;
+}
+
+.list-node {
+  padding: 0.5rem;
+}
+
+.icon {
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 1rem;
+}
+
+.default-icon {
+  border: 1px solid black;
+  border-radius: 50%;
+}

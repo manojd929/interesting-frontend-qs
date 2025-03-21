@@ -1,5 +1,5 @@
 import React from 'react';
-import { ACTIONS } from './Calculator';
+import { ACTIONS } from '.';
 
 const OperationButton = ({ operation, dispatch }) => {
   return (
