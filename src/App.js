@@ -3,8 +3,8 @@ import OverlappingCircle from './react-components/DetectOverlappingCircle';
 import TreeView from './react-components/TreeView';
 import PausableAutoIncrementer from './react-components/PausableAutoIncrementer';
 import UseDebounceCustomHook from './react-components/UseDebounceCustomHook';
-import FetchAndAbort from './react-components/FetchAndMore/FetchWithAbort';
-import FetchWithTimeout from './react-components/FetchAndMore/FetchWithTimeout';
+import FetchAndAbort from './react-components/FetchAndAbort';
+import FetchWithTimeout from './react-components/FetchWithTimeout';
 import InfiniteScroller from './react-components/InfiniteScroller';
 import SnakeGame from './react-components/SnakeGame';
 import Calculator from './react-components/Calculator';
@@ -19,10 +19,10 @@ const PROBLEMS_SET = {
   PAUSABLE_AUTO_INCREMENTER: 'Pausable Auto Incrementer',
   USE_DEBOUNCE_CUSTOM_HOOK: 'Use Debounce - Custom Hook',
   FETCH_AND_ABORT: 'Fetch and Abort',
+  FETCH_WITH_TIMEOUT: 'Fetch With Timeout',
   INFINITE_SCROLLER: 'Infinite Scrolling',
   SNAKE_GAME: 'Snake Game',
   CALCULATOR: 'Calculator',
-  FETCH_WITH_TIMEOUT: 'Fetch With Timeout',
   FEATURE_FLAG: 'Feature Flag',
   BAR_GRAPH: 'Bar Graph',
   CUSTOM_SWITCH: 'Custom Switch',
@@ -43,14 +43,14 @@ const App = () => {
         return <UseDebounceCustomHook />;
       case PROBLEMS_SET.FETCH_AND_ABORT:
         return <FetchAndAbort />;
+      case PROBLEMS_SET.FETCH_WITH_TIMEOUT:
+        return <FetchWithTimeout />;
       case PROBLEMS_SET.INFINITE_SCROLLER:
         return <InfiniteScroller />;
       case PROBLEMS_SET.SNAKE_GAME:
         return <SnakeGame />;
       case PROBLEMS_SET.CALCULATOR:
         return <Calculator />;
-      case PROBLEMS_SET.FETCH_WITH_TIMEOUT:
-        return <FetchWithTimeout />;
       case PROBLEMS_SET.FEATURE_FLAG:
         return <FeatureFlag />;
       case PROBLEMS_SET.BAR_GRAPH:
@@ -141,6 +141,19 @@ const App = () => {
               <label htmlFor="problem">
                 <input
                   type="radio"
+                  id={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  name="problem"
+                  value={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  checked={problem === PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+                  onChange={() => setProblem(PROBLEMS_SET.FETCH_WITH_TIMEOUT)}
+                />
+                {PROBLEMS_SET.FETCH_WITH_TIMEOUT}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
                   id={PROBLEMS_SET.INFINITE_SCROLLER}
                   name="problem"
                   value={PROBLEMS_SET.INFINITE_SCROLLER}
@@ -174,19 +187,6 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.CALCULATOR)}
                 />
                 {PROBLEMS_SET.CALCULATOR}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="problem">
-                <input
-                  type="radio"
-                  id={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
-                  name="problem"
-                  value={PROBLEMS_SET.FETCH_WITH_TIMEOUT}
-                  checked={problem === PROBLEMS_SET.FETCH_WITH_TIMEOUT}
-                  onChange={() => setProblem(PROBLEMS_SET.FETCH_WITH_TIMEOUT)}
-                />
-                {PROBLEMS_SET.FETCH_WITH_TIMEOUT}
               </label>
             </div>
             <div>

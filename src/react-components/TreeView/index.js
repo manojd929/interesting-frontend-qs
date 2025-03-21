@@ -7,8 +7,6 @@ const App = () => {
     <div className="app">
       <h1>Tree Builder</h1>
       <main>
-        <div className="datetime-now">{new Date().toLocaleString()}</div>
-        <hr />
         <Page />
       </main>
     </div>
