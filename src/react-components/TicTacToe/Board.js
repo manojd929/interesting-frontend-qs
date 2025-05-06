@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import './style.css'
 import { calculateWinner } from './utils/util'
 
+const getBoardStyle = (boardSize) => ({
+    width: `${60 * boardSize}px`,
+    height: `${60 * boardSize}px`,
+    gridTemplateColumns: `repeat(${boardSize}, 1fr)`,
+    gridTemplateRows: `repeat(${boardSize}, 1fr)`
+})
+
 const Cell = ({ value, onClickCell }) => {
     return (
         <div className="cell" onClick={onClickCell}>
@@ -27,23 +34,17 @@ const Board = (props) => {
         setIsX((prevState) => !prevState)
     }
 
-    const onResetGame = () => {
-        setBoard(new Array(boardSize * boardSize).fill(''))
-        setIsX(true)
-        winner = null
-    }
-
     if (winner) {
         return (
             <div className="result">
-                ${winner} wins!!
+                {`Player '${winner}' wins!!`}
             </div>
         )
     }
 
     return (
         <div>
-            <div className='board'>
+            <div className='board' style={getBoardStyle(boardSize)}>
                 {board.map((cell, index) => (
                     <Cell
                         key={`cell-${index}`}
@@ -52,10 +53,7 @@ const Board = (props) => {
                     />
                 ))}
             </div>
-            <div className='reset-container'>
-                <button onClick={() => onResetGame()}>Reset</button>
-            </div>
-        </div>
+        </div >
     )
 }
 

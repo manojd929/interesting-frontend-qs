@@ -8,6 +8,12 @@ const TicTacToe = () => {
     const [showBoard, setShowBoard] = React.useState(false)
     const [winningCombinations, setWinningCombinations] = React.useState(null)
 
+    const onResetGame = () => {
+        setSize(0)
+        setShowBoard(false)
+        setWinningCombinations(null)
+    }
+
     const onChangeSize = (value) => {
         setSize(value)
     }
@@ -37,7 +43,16 @@ const TicTacToe = () => {
     return (
         <div className='game-container'>
             <h1 className='header'>Tic Tac Toe</h1>
-            {showBoard ? <Board size={size} winningCombinations={winningCombinations} /> : getInputComp()}
+            {!showBoard ? getInputComp() : (
+                <Board
+                    size={size}
+                    winningCombinations={winningCombinations}
+                    onResetGame={onResetGame}
+                />
+            )}
+            <div className='reset-container'>
+                <button onClick={() => onResetGame()}>Reset</button>
+            </div>
         </div>
     )
 }

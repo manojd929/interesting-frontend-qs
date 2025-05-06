@@ -1,5 +1,5 @@
 const getWinningCombination = (boardSize = 1) => {
-    if (boardSize <= 0) {
+    if (boardSize <= 1) {
         return null
     }
 
@@ -45,10 +45,13 @@ const getWinningCombination = (boardSize = 1) => {
 }
 
 const calculateWinner = (board, winningCombinations) => {
-    for (let i = 0; i < winningCombinations.length; i++) {
-        
+    for (const line of winningCombinations) {
+        const [first, ...rest] = line;
+        if (board[first] && rest.every((i) => board[i] === board[first])) {
+            return board[first];
+        }
     }
-    return false;
+    return null
 }
 
 export {

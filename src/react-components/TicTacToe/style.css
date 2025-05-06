@@ -11,11 +11,7 @@
 }
 
 .board {
-    width: 180px;
-    height: 180px;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .reset-container {
