@@ -11,6 +11,7 @@ import Calculator from './react-components/Calculator';
 import FeatureFlag from './react-components/FeatureFlag';
 import BarGraph from './react-components/BarGraph';
 import CustomSwitch from './react-components/CustomSwitch';
+import TicTacToe from './react-components/TicTacToe';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -26,10 +27,11 @@ const PROBLEMS_SET = {
   FEATURE_FLAG: 'Feature Flag',
   BAR_GRAPH: 'Bar Graph',
   CUSTOM_SWITCH: 'Custom Switch',
+  TIC_TAC_TOE: 'Tic Tac Toe'
 };
 
 const App = () => {
-  const [problem, setProblem] = useState(PROBLEMS_SET.OVERLAPPING_CIRCLE);
+  const [problem, setProblem] = useState(PROBLEMS_SET.TIC_TAC_TOE);
 
   const getComp = () => {
     switch (problem) {
@@ -57,6 +59,8 @@ const App = () => {
         return <BarGraph />;
       case PROBLEMS_SET.CUSTOM_SWITCH:
         return <CustomSwitch />;
+      case PROBLEMS_SET.TIC_TAC_TOE:
+        return <TicTacToe />;
       default:
         return <></>;
     }
@@ -226,6 +230,19 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.CUSTOM_SWITCH)}
                 />
                 {PROBLEMS_SET.CUSTOM_SWITCH}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.TIC_TAC_TOE}
+                  name="problem"
+                  value={PROBLEMS_SET.TIC_TAC_TOE}
+                  checked={problem === PROBLEMS_SET.TIC_TAC_TOE}
+                  onChange={() => setProblem(PROBLEMS_SET.TIC_TAC_TOE)}
+                />
+                {PROBLEMS_SET.TIC_TAC_TOE}
               </label>
             </div>
           </fieldset>
