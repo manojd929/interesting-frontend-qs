@@ -12,6 +12,7 @@ import FeatureFlag from './react-components/FeatureFlag';
 import BarGraph from './react-components/BarGraph';
 import CustomSwitch from './react-components/CustomSwitch';
 import TicTacToe from './react-components/TicTacToe';
+import Carousel from './react-components/Carousel';
 import './style.css';
 
 const PROBLEMS_SET = {
@@ -27,7 +28,8 @@ const PROBLEMS_SET = {
   FEATURE_FLAG: 'Feature Flag',
   BAR_GRAPH: 'Bar Graph',
   CUSTOM_SWITCH: 'Custom Switch',
-  TIC_TAC_TOE: 'Tic Tac Toe'
+  TIC_TAC_TOE: 'Tic Tac Toe',
+  CAROUSEL: 'Carousel'
 };
 
 const App = () => {
@@ -61,6 +63,8 @@ const App = () => {
         return <CustomSwitch />;
       case PROBLEMS_SET.TIC_TAC_TOE:
         return <TicTacToe />;
+      case PROBLEMS_SET.CAROUSEL:
+        return <Carousel />
       default:
         return <></>;
     }
@@ -243,6 +247,19 @@ const App = () => {
                   onChange={() => setProblem(PROBLEMS_SET.TIC_TAC_TOE)}
                 />
                 {PROBLEMS_SET.TIC_TAC_TOE}
+              </label>
+            </div>
+            <div>
+              <label htmlFor="problem">
+                <input
+                  type="radio"
+                  id={PROBLEMS_SET.CAROUSEL}
+                  name="problem"
+                  value={PROBLEMS_SET.CAROUSEL}
+                  checked={problem === PROBLEMS_SET.CAROUSEL}
+                  onChange={() => setProblem(PROBLEMS_SET.CAROUSEL)}
+                />
+                {PROBLEMS_SET.CAROUSEL}
               </label>
             </div>
           </fieldset>
