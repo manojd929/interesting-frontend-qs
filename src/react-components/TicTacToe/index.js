@@ -34,8 +34,6 @@ const TicTacToe = () => {
                     value={size}
                     onChange={(e) => onChangeSize(e.target.value)}
                 />
-            </div>
-            <div>
                 <button onClick={() => checkGridSize()}>Submit</button>
             </div>
         </div>
@@ -51,7 +49,7 @@ const TicTacToe = () => {
                 />
             )}
             <div className='reset-container'>
-                <button onClick={() => onResetGame()}>Reset</button>
+                <button onClick={() => onResetGame()}>Reset Everything!!</button>
             </div>
         </div>
     )

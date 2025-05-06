@@ -40,7 +40,6 @@ const getWinningCombination = (boardSize = 1) => {
     }
     combinations.push(antiDiagonal);
 
-    console.log(combinations)
     return combinations
 }
 
@@ -48,8 +47,12 @@ const calculateWinner = (board, winningCombinations) => {
     for (const line of winningCombinations) {
         const [first, ...rest] = line;
         if (board[first] && rest.every((i) => board[i] === board[first])) {
-            return board[first];
+            return `Player ${board[first]} Wins!!`;
         }
+    }
+
+    if (board.every((i) => board[i] === 'X' || board[i] === 'O')) {
+        return "It's a Draw"
     }
     return null
 }

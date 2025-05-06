@@ -37,7 +37,7 @@ const Board = (props) => {
     if (winner) {
         return (
             <div className="result">
-                {`Player '${winner}' wins!!`}
+                {winner}
             </div>
         )
     }
