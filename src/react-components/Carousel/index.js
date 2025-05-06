@@ -31,31 +31,36 @@ const ImageCarousel = (props) => {
     }, [])
 
     return (
-        <div className='carousel'>
-            <button
-                onClick={() => {
-                    setImageIndex((prevState) => prevState === 0 ? imagesLength - 1 : prevState - 1)
-                }}
-            >
-                {'Prev'}
-            </button>
-            <div
-                className='image-container'
-            >
-                <img
-                    className='image-comp'
-                    src={images[imageIndex]}
-                    alt={`image-${imageIndex + 1}`}
-                />
+        <>
+            <div className='carousel'>
+                <button
+                    onClick={() => {
+                        setImageIndex((prevState) => prevState === 0 ? imagesLength - 1 : prevState - 1)
+                    }}
+                >
+                    {'Prev'}
+                </button>
+                <div
+                    className='image-container'
+                >
+                    <img
+                        className='image-comp'
+                        src={images[imageIndex]}
+                        alt={`image-${imageIndex + 1}`}
+                    />
+                </div>
+                <button
+                    onClick={() => {
+                        setImageIndex((prevState) => prevState === imagesLength - 1 ? 0 : prevState + 1)
+                    }}
+                >
+                    {'Next'}
+                </button>
             </div>
-            <button
-                onClick={() => {
-                    setImageIndex((prevState) => prevState === imagesLength - 1 ? 0 : prevState + 1)
-                }}
-            >
-                {'Next'}
-            </button>
-        </div>
+            <div>
+                Image number: {imageIndex + 1}
+            </div>
+        </>
     )
 }
 
