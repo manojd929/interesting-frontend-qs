@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding: 4rem;
+}
+
+.notification {
+    position: absolute;
+    right: 0;
+    top: auto;
+}
